@@ -23,14 +23,13 @@ module StudentSite
     
     #creates routes for ERB profiles
     get "/students/:int" do
-      Student.find(params[:int])
-      student_info = Student.find(params[:int])
-      @name = student_info[1]
-
-      puts "student_info is #{student_info}"
-
-      puts "NAME = #{@name}"        
-
+      studobj = Student.find(params[:int])
+      @name = studobj.name
+      @bio = studobj.bio
+      @tagline = studobj.tagline
+      @twitter = studobj.twitter
+      @linkedin = studobj.linkedin
+      @github = studobj.github
       erb :profile
     end
   end

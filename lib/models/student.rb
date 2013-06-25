@@ -4,10 +4,12 @@ class Student
   ATTRIBUTES = {
     :id => "INTEGER PRIMARY KEY",
     :name => "TEXT",
+    :url => "TEXT",
+    :twitter => "TEXT",
+    :linkedin => "TEXT",
+    :github => "TEXT",
     :tagline => "TEXT",
-    :bio => "TEXT",
-    :treehouse_profile => "TEXT",
-    :url => "TEXT"
+    :bio => "TEXT"
   }
 
   def self.attributes
