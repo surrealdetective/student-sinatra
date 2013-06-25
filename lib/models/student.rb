@@ -18,15 +18,15 @@ class Student
     args.flatten.each do |arg|
       define_singleton_method("find_by_#{arg}") do |value|
         result = self.database.execute "SELECT * FROM #{self.table_name} WHERE #{arg} = ?", value
+        puts result
         new_from_db(result.first)
       end
     end
   end
 
-  find_by(self.attributes.keys)
-
   def self.find(id)
-    self.find_by_id(id)
+    result = self.database.execute "SELECT * FROM #{self.table_name} WHERE id = ?", id
+    new_from_db(result.first)
   end
 
   def self.all

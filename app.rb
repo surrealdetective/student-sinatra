@@ -20,13 +20,18 @@ module StudentSite
       @students = Student.all
       erb :students
     end
-
+    
     #creates routes for ERB profiles
-    @students.each do |student|
-      student_id = student.id
-      get "/students/#{student_id}" do
-        erb :profile
-      end
+    get "/students/:int" do
+      Student.find(params[:int])
+      student_info = Student.find(params[:int])
+      @name = student_info[1]
+
+      puts "student_info is #{student_info}"
+
+      puts "NAME = #{@name}"        
+
+      erb :profile
     end
   end
 end
