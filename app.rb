@@ -11,10 +11,6 @@ module StudentSite
   class App < Sinatra::Base
     #@students variable defined for class
     @students = Student.all
-    
-    #creates ERB profiles
-    @students.each do |student|
-
 
     get '/' do
       "hello world!"
