@@ -14,13 +14,7 @@ module StudentSite
     
     #creates ERB profiles
     @students.each do |student|
-      template = ERB.new(File.read("views/profile.erb"))
-      # debugger
-      f = File.new("views/#{student.id}.erb", "w")
-      File.open(f, "w") do |file|
-        file.write(template)
-      end
-    end
+
 
     get '/' do
       "hello world!"
@@ -34,8 +28,8 @@ module StudentSite
     #creates routes for ERB profiles
     @students.each do |student|
       student_id = student.id
-      get "/#{student_id}" do
-        erb ":#{student_id}"
+      get "/students/#{student_id}" do
+        erb :profile
       end
     end
   end
